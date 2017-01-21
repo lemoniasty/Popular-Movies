@@ -1,3 +1,31 @@
-<resources>
-    <string name="app_name">Popular Movies Stage 1</string>
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <!-- App name and activities names -->
+    <string name="app_name">Popular Movies</string>
+    <string name="movie_detail">Movie detail</string>
+
+    <!-- Texts in activities -->
+    <string name="rating">Rating:</string>
+    <string name="runtime">Runtime:</string>
+    <string name="release_date">Release date:</string>
+
+    <!-- Error messages -->
+    <string name="error_message">An error has occurred. Please try again by selecting sort order of the movies from the menu.</string>
+    <string name="error_no_internet">There is no internet connection</string>
+    <string name="error_message_movie_not_exists">Selected movie does not exists.</string>
+    <string name="error_message_api_communication_error">There was an error during fetching data from the API.</string>
+
+    <!-- Used in overflow menu to selecting movies sort order -->
+    <string name="show_popular_movies_option">Show popular movies</string>
+    <string name="show_top_rated_movies_option">Show top rated movies</string>
+
+    <!-- Formatted strings -->
+    <string name="format_movie_rating" translatable="false"><xliff:g example="8.1" id="rating_value">%1$s</xliff:g>/10</string>
+    <string name="format_movie_runtime"><xliff:g example="120" id="runtime_in_minutes">%1$d</xliff:g>min</string>
+    <string name="format_movie_poster_content_description">Poster for the movie under the title: <xliff:g example="The Lord of the Rings" id="movie_title">%1$s</xliff:g></string>
+
+    <!-- Shared preferences section -->
+    <string name="preferences_sort_order_key" translatable="false">preferences_sort_order</string>
+    <string name="preferences_sort_order_popular" translatable="false">popular</string>
+    <string name="preferences_sort_order_top_rated" translatable="false">top_rated</string>
+    <string name="preferences_sort_order_default" translatable="false">@string/preferences_sort_order_popular</string>
 </resources>

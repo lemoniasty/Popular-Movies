@@ -1,4 +1,4 @@
-package android.nextlevel_global.com.popularmoviesstage1;
+package android.nextlevel_global.com.popularmovies;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

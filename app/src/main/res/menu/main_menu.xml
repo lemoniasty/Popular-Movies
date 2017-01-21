@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/menu_movies_order"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_popular_movies"
+            android:orderInCategory="100"
+            android:title="@string/show_popular_movies_option" />
+
+        <item
+            android:id="@+id/menu_top_rated"
+            android:orderInCategory="101"
+            android:title="@string/show_top_rated_movies_option"
+            app:showAsAction="never" />
+    </group>
+</menu>
