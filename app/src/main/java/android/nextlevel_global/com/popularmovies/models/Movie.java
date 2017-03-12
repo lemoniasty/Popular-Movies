@@ -3,6 +3,8 @@ package android.nextlevel_global.com.popularmovies.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 /**
  * Movie model class.
  */
@@ -49,6 +51,26 @@ public class Movie implements Parcelable {
     private int runtime;
 
     /**
+     * The flag indicating whether the movie is in favorites or not.
+     */
+    private boolean isFavorite;
+
+    /**
+     * Cast list.
+     */
+    private ArrayList<Cast> castList;
+
+    /**
+     * Reviews for this movie.
+     */
+    private ArrayList<Review> reviews;
+
+    /**
+     * List of the trailers for this movie.
+     */
+    private ArrayList<Trailer> trailers;
+
+    /**
      * Default class constructor.
      */
     public Movie() {
@@ -67,6 +89,10 @@ public class Movie implements Parcelable {
         userRating = in.readString();
         releaseDate = in.readString();
         runtime = in.readInt();
+        isFavorite = in.readByte() != 0;
+        castList = in.createTypedArrayList(Cast.CREATOR);
+        reviews = in.createTypedArrayList(Review.CREATOR);
+        trailers = in.createTypedArrayList(Trailer.CREATOR);
     }
 
     /**
@@ -220,6 +246,82 @@ public class Movie implements Parcelable {
         this.runtime = runtime;
     }
 
+    /**
+     * Checks if movie is in favorites.
+     *
+     * @return favorites status
+     */
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    /**
+     * Sets the favorites flag status.
+     *
+     * @param favorite status
+     */
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
+
+    /**
+     * Gets a cast list for the movie.
+     *
+     * @return cast list
+     */
+    public ArrayList<Cast> getCastList() {
+        return castList;
+    }
+
+    /**
+     * Sets a cast list for the movie.
+     *
+     * @param castList for this movie
+     */
+    public void setCastList(ArrayList<Cast> castList) {
+        this.castList = castList;
+    }
+
+    /**
+     * Gets the reviews list for the movie.
+     *
+     * @return reviews list
+     */
+    public ArrayList<Review> getReviewsList() {
+        return reviews;
+    }
+
+    /**
+     * Sets the reviews list for the movie.
+     *
+     * @param reviews for this movie
+     */
+    public void setReviewsList(ArrayList<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    /**
+     * Gets the trailers list for the movie.
+     *
+     * @return trailers list
+     */
+    public ArrayList<Trailer> getTrailers() {
+        return trailers;
+    }
+
+    /**
+     * Sets the trailers list for the movie.
+     *
+     * @param trailers list for this movie
+     */
+    public void setTrailers(ArrayList<Trailer> trailers) {
+        if (trailers == null) {
+            trailers = new ArrayList<>();
+        }
+
+        this.trailers = trailers;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -240,6 +342,10 @@ public class Movie implements Parcelable {
         parcel.writeString(userRating);
         parcel.writeString(releaseDate);
         parcel.writeInt(runtime);
+        parcel.writeByte((byte) (isFavorite ? 1 : 0));
+        parcel.writeTypedList(castList);
+        parcel.writeTypedList(reviews);
+        parcel.writeTypedList(trailers);
     }
 
     /**

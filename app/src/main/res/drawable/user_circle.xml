@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+User avatar name circle. Is used for displaying circle under first letter of the users
+name/nickname in case we don't have image avatar available.
+-->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/colorAccent" />
+    <size
+        android:width="40dp"
+        android:height="40dp" />
+    <corners android:radius="20dp" />
+</shape>

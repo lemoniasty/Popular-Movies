@@ -57,5 +57,6 @@ abstract class InfiniteScrollListener extends RecyclerView.OnScrollListener {
         loading = true;
     }
 
+    @SuppressWarnings("unused")
     public abstract void onLoadMore(int page, int totalItemsCount, RecyclerView view);
 }

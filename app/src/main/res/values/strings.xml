@@ -1,31 +1,62 @@
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <!-- App internal variables -->
+    <string name="content_authority">android.nextlevel_global.com.popularmovies</string>
+
     <!-- App name and activities names -->
     <string name="app_name">Popular Movies</string>
     <string name="movie_detail">Movie detail</string>
 
-    <!-- Texts in activities -->
+    <!-- Texts in details fragment -->
     <string name="rating">Rating:</string>
     <string name="runtime">Runtime:</string>
     <string name="release_date">Release date:</string>
+    <string name="details_tab_cast">Cast</string>
+    <string name="details_tab_details">Details</string>
+    <string name="details_tab_reviews">Reviews</string>
+    <string name="details_tab_trailers">Trailers</string>
+    <string name="movie_trailer">Movie trailer</string>
+    <string name="cast_member">Cast member</string>
+    <string name="youtube">YouTube</string>
+    <string name="loading_data">Loading data…</string>
 
     <!-- Error messages -->
     <string name="error_message">An error has occurred. Please try again by selecting sort order of the movies from the menu.</string>
     <string name="error_no_internet">There is no internet connection</string>
+    <string name="error_message_no_reviews">Nobody has written yet any review about this movie.</string>
+    <string name="error_no_movies_in_favorites">You haven\'t added any movie to favorites.</string>
+    <string name="error_message_no_cast_members">We didn\'t find actors who play in this film.</string>
+    <string name="error_message_no_trailers">We haven\'t found any trailer related with this movie.</string>
     <string name="error_message_movie_not_exists">Selected movie does not exists.</string>
+    <string name="error_message_argument_missing">There was a problem with fetching a movie data.</string>
     <string name="error_message_api_communication_error">There was an error during fetching data from the API.</string>
 
     <!-- Used in overflow menu to selecting movies sort order -->
     <string name="show_popular_movies_option">Show popular movies</string>
+    <string name="show_favorite_movies_option">Show favorite movies</string>
     <string name="show_top_rated_movies_option">Show top rated movies</string>
+
+    <!-- Used in overflow menu in movie details fragment -->
+    <string name="share">Share</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+
+    <!-- Toast messages -->
+    <string name="added_to_favorites">Movie has been added to favorites</string>
+    <string name="removed_from_favorites">Movie has been removed from favorites</string>
 
     <!-- Formatted strings -->
     <string name="format_movie_rating" translatable="false"><xliff:g example="8.1" id="rating_value">%1$s</xliff:g>/10</string>
     <string name="format_movie_runtime"><xliff:g example="120" id="runtime_in_minutes">%1$d</xliff:g>min</string>
     <string name="format_movie_poster_content_description">Poster for the movie under the title: <xliff:g example="The Lord of the Rings" id="movie_title">%1$s</xliff:g></string>
+    <string name="format_movie_share_message">Dude… You totally must see this awesome trailer for \"<xliff:g example="Star Wars" id="movie_title">%1$s</xliff:g>\". You will find it under: <xliff:g example="youtube.com" id="trailer_url">%2$s</xliff:g>. Enjoy! ;)</string>
 
     <!-- Shared preferences section -->
     <string name="preferences_sort_order_key" translatable="false">preferences_sort_order</string>
     <string name="preferences_sort_order_popular" translatable="false">popular</string>
+    <string name="preferences_sort_order_favorites" translatable="false">favorites</string>
     <string name="preferences_sort_order_top_rated" translatable="false">top_rated</string>
     <string name="preferences_sort_order_default" translatable="false">@string/preferences_sort_order_popular</string>
+
+    <!-- Used for generate proper URL pattern for YouTube movies -->
+    <string name="youtube_url_pattern" translatable="false">https://www.youtube.com/watch?v=<xliff:g example="I4tFNfROlqk" id="video_id">%1$s</xliff:g></string>
 </resources>

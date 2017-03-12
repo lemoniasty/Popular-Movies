@@ -40,6 +40,21 @@ public class NetworkUtils {
     private static final String TOP_RATED_ENDPOINT = "top_rated";
 
     /**
+     * Path value to the API endpoint which contains a cast members for the movie.
+     */
+    private static final String MOVIE_CASTS_ENDPOINT = "casts";
+
+    /**
+     * Path value to the API endpoint which contains a reviews for the movie.
+     */
+    private static final String MOVIE_REVIEWS_ENDPOINT = "reviews";
+
+    /**
+     * Path value to the API endpoint which contains a trailers related with the movie.
+     */
+    private static final String MOVIE_TRAILERS_ENDPOINT = "trailers";
+
+    /**
      * API key query param key name.
      */
     private final static String API_PARAM = "api_key";
@@ -99,6 +114,63 @@ public class NetworkUtils {
                 .build();
 
         Log.v(TAG, "Fetch data from: " + uri.toString());
+        return new URL(uri.toString());
+    }
+
+    /**
+     * Builds the URL used to get a cast members for the selected movie from themoviedb.org API.
+     *
+     * @param movieId of the selected movie.
+     * @return The URL to use to query the themoviedb.org API.
+     * @throws MalformedURLException
+     */
+    public static URL buildCastMembersUrl(String movieId) throws MalformedURLException {
+        Uri uri = Uri.parse(THEMOVIEDB_API_URL)
+                .buildUpon()
+                .appendPath(movieId)
+                .appendPath(MOVIE_CASTS_ENDPOINT)
+                .appendQueryParameter(NetworkUtils.API_PARAM, BuildConfig.THE_MOVIE_DB_API_KEY)
+                .build();
+
+        Log.v(TAG, "Fetch cast members from: " + uri.toString());
+        return new URL(uri.toString());
+    }
+
+    /**
+     * Builds the URL used to get a reviews for the selected movie from themoviedb.org API.
+     *
+     * @param movieId of the selected movie.
+     * @return The URL to use to query the themoviedb.org API.
+     * @throws MalformedURLException
+     */
+    public static URL buildReviewsUrl(String movieId) throws MalformedURLException {
+        Uri uri = Uri.parse(THEMOVIEDB_API_URL)
+                .buildUpon()
+                .appendPath(movieId)
+                .appendPath(MOVIE_REVIEWS_ENDPOINT)
+                .appendQueryParameter(NetworkUtils.API_PARAM, BuildConfig.THE_MOVIE_DB_API_KEY)
+                .build();
+
+        Log.v(TAG, "Fetch reviews from: " + uri.toString());
+        return new URL(uri.toString());
+    }
+
+    /**
+     * Builds the URL used to get trailers for the selected movie from themoviedb.org API.
+     *
+     * @param movieId of the selected movie
+     * @return The URL to use to API call.
+     * @throws MalformedURLException
+     */
+    public static URL buildTrailersUrl(String movieId) throws MalformedURLException {
+        Uri uri = Uri.parse(THEMOVIEDB_API_URL)
+                .buildUpon()
+                .appendPath(movieId)
+                .appendPath(MOVIE_TRAILERS_ENDPOINT)
+                .appendQueryParameter(NetworkUtils.API_PARAM, BuildConfig.THE_MOVIE_DB_API_KEY)
+                .build();
+
+        Log.v(TAG, "Fetch trailers from: " + uri.toString());
         return new URL(uri.toString());
     }
 
